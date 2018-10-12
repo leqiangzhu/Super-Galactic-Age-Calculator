@@ -1,3 +1,5 @@
+import { toUnicode } from "punycode";
+
 export class AgeCalculator { 
    constructor (year,month,day) {
     this.day = day;
@@ -7,9 +9,20 @@ export class AgeCalculator {
 
 
         //this method is to check the input day is void,the input day can not bigger than maxday
+         CheckLeapYear(){
+                let flag=true;
+                if (this.year % 4 === 0 && this.year % 100 !== 0 || this.year % 400 === 0){
+                    flag= true;
+                    }else{
+                        flag= false;
+                    }
+                    return flag;
+
+            }
+
         GetMaxDay() {
         var maxDay=0;
-        if ((this.month === 2) &&((this.year % 4 === 0) && (this.year % 100 !== 0) || (this.year % 400 === 0))) {
+        if ((this.month === 2) && this.CheckLeapYear()) {
             maxDay = 29;
         } else {
             switch (this.month) {
@@ -57,13 +70,14 @@ export class AgeCalculator {
 // INPU2-1     2
 
         
-        DayChecker(){
-          
+        GetAgeOnEarth(){
+            //the birthday is from user input
             let birthday =new Date (this.year,this.month-1,this.day);
             let today =new Date();
+            
             let today_year=today.getFullYear();
-            let date_year=date.getFullYear();
-            let age=today_year-date_year;
+            let birthday_year=birthday.getFullYear();
+            let age=today_year - birthday_year;
 
             return age;
     

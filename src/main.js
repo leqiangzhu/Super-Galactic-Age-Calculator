@@ -12,7 +12,7 @@ $(document).ready(function() {
     let day = parseInt($('#day').val());
     
 
-    let daydate =new  DayCalculator (year,month,day);
+    let daydate =new  AgeCalculator (year,month,day);
     let maxday =   daydate.GetMaxDay();
    // let dayNumber=daydate.getDay();
     if(day>maxday || maxday===0){
@@ -20,8 +20,8 @@ $(document).ready(function() {
     }
     
     
-    let dayoutput = daydate.DayChecker();
-    $('#result').text("This MAX DAY is " +maxday +" This day is :" +dayoutput);
+    let dayoutput = daydate.GetAgeOnEarth();
+    $('#result').text("This MAX DAY is " +maxday +" The Age is :" +dayoutput);
    
     
     });
