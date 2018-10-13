@@ -1,3 +1,7 @@
 body {
   background-color: lightblue;
 }
+
+#AgeOnMercury{
+display: none;
+}

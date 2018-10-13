@@ -23,8 +23,18 @@ $(document).ready(function() {
     let dayoutput = daydate.GetAgeOnEarth();
     $('#result').text(" The Age on the Earth is :"+dayoutput[0]+ 
     " Years "+dayoutput[1]+" Months "+dayoutput[2]+" Days ");
+
+    $('#AgeOnMercury').text(" The Age on the Mercury is :"+daydate.GetAgeOnMercury()+" Years ");
+    $('#AgeOnVenus').text(" The Age on the Venus is :"+daydate.GetAgeOnVenus()+" Years ");
+    $('#AgeOnMars').text(" The Age on the Mars is :"+daydate.GetAgeOnMars()+" Years ");
+    $('#AgeOnJupiter').text(" The Age on the Jupiter is :"+daydate.GetAgeOnJupiter()+" Years ");
+
+    $('#AgeOnMercury').show(); 
    
     
     });
+
+
+    
   });
 

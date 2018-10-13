@@ -1,23 +1,28 @@
 import { toUnicode } from "punycode";
 
 export class AgeCalculator { 
-   constructor (year,month,day) {
+   constructor (year,month,day)
+    {
     this.day = day;
     this.year = year;
     this.month = month;
-            }
+    this.birthday=new Date(this.year,this.month-1,this.day);
+    this.today=new Date();
+    this.Earth_days=(this.today.getTime()-this.birthday.getTime())
+                        /(24*60*60*1000);
+    
+    }
 
 
         //this method is to check the input day is void,the input day can not bigger than maxday
-         CheckLeapYear(){
-                let flag=true;
-                if (this.year % 4 === 0 && this.year % 100 !== 0 || this.year % 400 === 0){
-                    flag= true;
-                    }else{
-                        flag= false;
-                    }
-                    return flag;
-
+    CheckLeapYear(){
+        let flag=true;
+        if (this.year % 4 === 0 && this.year % 100 !== 0 || this.year % 400 === 0){
+            flag= true;
+            }else{
+                flag= false;
+            }
+            return flag;
             }
 
         GetMaxDay() {
@@ -72,15 +77,15 @@ export class AgeCalculator {
         
         GetAgeOnEarth(){
             //the birthday is from user input
-            let birthday =new Date (this.year,this.month-1,this.day);
-            let today =new Date();
+            //let birthday =new Date (this.year,this.month-1,this.day);
+           
             
-            let today_year=today.getFullYear();
-            let birthday_year=birthday.getFullYear();
+            let today_year=this.today.getFullYear();
+            let birthday_year=this.birthday.getFullYear();
             
 
-            let today_time = today.getTime();
-            let birthday_time = birthday.getTime();
+            let today_time = this.today.getTime();
+            let birthday_time = this.birthday.getTime();
 
             let age_year=0;
             let age_month=0;
@@ -106,8 +111,8 @@ export class AgeCalculator {
                 }
             }
 
-             age_month=Math.floor((life_day% 365)/30);
-             age_day= Math.floor(life_day % 365%30-leapYearCount);
+             age_month=Math.floor((life_day% 365-leapYearCount)/30);
+             age_day= Math.floor((life_day % 365-leapYearCount)%30);
 
             
 
@@ -115,8 +120,37 @@ export class AgeCalculator {
             console.log(leapYearCount)
 
             return [age_year,age_month,age_day];
+            //https://www.calculator.net/age-calculator.html
+            //https://kalender-365.de/leap-years.php
+            //https://www.timeanddate.com/time/map/
     
     }
+    // the Earth year is 365 days,A Mercury year is .24 Earth years.
+    GetAgeOnMercury(){
+      //  Math.round(number * 100) / 100)
+        let Mercury_years=(this.Earth_days/365/0.24).toFixed(1);
+        return  Mercury_years;
+    }
+
+    GetAgeOnVenus(){
+        //  Math.round(number * 100) / 100)
+          let Venus_years=(this.Earth_days/365/0.62).toFixed(1);
+          return  Venus_years;
+      }
+
+      GetAgeOnMars(){
+        //  Math.round(number * 100) / 100)
+          let Mars_years=(this.Earth_days/365/1.88).toFixed(1);
+          return  Mars_years;
+      }
+
+      GetAgeOnJupiter(){
+        //  Math.round(number * 100) / 100)
+          let Jupiter_years=(this.Earth_days/365/11.86).toFixed(1);
+          return  Jupiter_years;
+      } 
+
+
 
 
 }
