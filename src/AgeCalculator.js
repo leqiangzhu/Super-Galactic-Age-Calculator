@@ -1,5 +1,8 @@
 import { toUnicode } from "punycode";
 
+//the data is from: https://data.worldbank.org/indicator/SP.DYN.LE00.IN
+//average life expectancy USA
+const average_life=79;
 export class AgeCalculator { 
    constructor (year,month,day)
     {
@@ -91,7 +94,7 @@ export class AgeCalculator {
             let age_month=0;
             let age_day=0;
             let life_day=(today_time-birthday_time)/(24*60*60*1000);
-             age_year = Math.floor(life_day/365);
+             age_year = Math.floor(this.Earth_days/365);
              
 
             let leapYearCount=0;
@@ -111,13 +114,8 @@ export class AgeCalculator {
                 }
             }
 
-             age_month=Math.floor((life_day% 365-leapYearCount)/30);
-             age_day= Math.floor((life_day % 365-leapYearCount)%30);
-
-            
-
-            console.log(age_day)
-            console.log(leapYearCount)
+             age_month=Math.floor((this.Earth_days% 365-leapYearCount)/30);
+             age_day= Math.floor((this.Earth_days% 365-leapYearCount)%30);
 
             return [age_year,age_month,age_day];
             //https://www.calculator.net/age-calculator.html
@@ -149,7 +147,13 @@ export class AgeCalculator {
           let Jupiter_years=(this.Earth_days/365/11.86).toFixed(1);
           return  Jupiter_years;
       } 
+      GetLeftYearsEarth(){
+       let age_year = (this.Earth_days/365).toFixed();
+       let expectancy_years_on_Earth;
+       return average_life-age_year;
 
+      }
+     
 
 
 
