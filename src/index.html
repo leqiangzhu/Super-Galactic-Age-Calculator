@@ -2,27 +2,54 @@
 <html>
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
     <script type="text/javascript" src="bundle.js"></script>
     <title>Day Checker</title>
+    <img src='img/SolarSystem.png' alt = "Header pic" width ="1140px">
+ 
+   
   </head>
   <body>
-    <form id="day-checker">
+    <div id="container">
+    <form id="dateInput">
       <label for="goal">Please enter your birthday:</label>
-      <h2>Year</h2><input id="year" type="number" >
-      <h2>Month</h2><input id="month" type="number" >
-      <h2>Day</h2><input id="day" type="number" >
-     
+      <table>
+        <tr>
+            <th> <h2>Year</h2></th> 
+                <th> <h2>Month</h2></th> 
+                    <th> <h2>Day</h2></th> 
+        </tr>
+
+      <tr>
+          <td> <input id="year" type="number" ></td> 
+              <td> <input id="month" type="number" ></td> 
+                  <td> <input id="day" type="number" ></td> 
+    </tr>
+     </table>
       <button type="submit">Submit</button>
     </form>
   
   <h1> <p id="result"></p></h1>
 
-  <button type="click" id="Mercury_button">Age On Other Plants</button>
+  <button type="click" id="AgeOnPlant-btn">Age On Other Plants</button>
   <div id="OtherAgeOnPlant">
   <h1> <p id="AgeOnMercury"></p></h1>
   <h1> <p id="AgeOnVenus"></p></h1>
   <h1> <p id="AgeOnMars"></p></h1>
   <h1> <p id="AgeOnJupiter"></p></h1>
+  
+</div>
+<button type="click" id="LeftYearOnPlant-btn">Left Year On Plants</button>
+<div id="leftYearOnPlant">
+<h1> <p id="LeftYearEarth"></p></h1>
+<h1> <p id="LeftYearMercury"></p></h1>
+<h1> <p id="LeftYearVenus"></p></h1>
+<h1> <p id="LeftYearMars"></p></h1>
+<h1> <p id="LeftYearJupiter"></p></h1>
+
+</div>
 </div>
   </body>
 </html>

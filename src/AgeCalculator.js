@@ -1,3 +1,9 @@
+//    https://www.calculator.net/age-calculator.html
+//     https://kalender-365.de/leap-years.php
+//     https://www.timeanddate.com/time/map/
+
+
+
 import { toUnicode } from "punycode";
 
 //the data is from: https://data.worldbank.org/indicator/SP.DYN.LE00.IN
@@ -118,9 +124,7 @@ export class AgeCalculator {
              age_day= Math.floor((this.Earth_days% 365-leapYearCount)%30);
 
             return [age_year,age_month,age_day];
-            //https://www.calculator.net/age-calculator.html
-            //https://kalender-365.de/leap-years.php
-            //https://www.timeanddate.com/time/map/
+         
     
     }
     // the Earth year is 365 days,A Mercury year is .24 Earth years.
@@ -137,23 +141,39 @@ export class AgeCalculator {
       }
 
       GetAgeOnMars(){
-        //  Math.round(number * 100) / 100)
           let Mars_years=(this.Earth_days/365/1.88).toFixed(1);
           return  Mars_years;
       }
 
       GetAgeOnJupiter(){
-        //  Math.round(number * 100) / 100)
           let Jupiter_years=(this.Earth_days/365/11.86).toFixed(1);
           return  Jupiter_years;
       } 
+
+
+
       GetLeftYearsEarth(){
        let age_year = (this.Earth_days/365).toFixed();
-       let expectancy_years_on_Earth;
-       return average_life-age_year;
-
-      }
+      //expectancy_years_on_Earth
+     return Math.abs(average_life-age_year);
      
+      }
+      GetLeftYearsMercury(){
+       // let YearLiftEarth=this.GetLeftYearsEarth();
+        return (this.GetLeftYearsEarth()/0.24).toFixed(1);
+       }
+       
+       GetLeftYearsVenus(){
+         return (this.GetLeftYearsEarth()/0.62).toFixed(1);
+        }
+        
+        GetLeftYearsMars(){
+            return (this.GetLeftYearsEarth()/1.88).toFixed(1);
+           }
+
+        GetLeftYearsJupiter(){
+            return (this.GetLeftYearsEarth()/11.86).toFixed(1);
+        }
 
 
 
