@@ -21,7 +21,8 @@ $(document).ready(function() {
     
     
     let dayoutput = daydate.GetAgeOnEarth();
-    $('#result').text("This MAX DAY is " +maxday +" The Age is :" +dayoutput);
+    $('#result').text(" The Age on the Earth is :"+dayoutput[0]+ 
+    " Years "+dayoutput[1]+" Months "+dayoutput[2]+" Days ");
    
     
     });

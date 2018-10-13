@@ -77,9 +77,44 @@ export class AgeCalculator {
             
             let today_year=today.getFullYear();
             let birthday_year=birthday.getFullYear();
-            let age=today_year - birthday_year;
+            
 
-            return age;
+            let today_time = today.getTime();
+            let birthday_time = birthday.getTime();
+
+            let age_year=0;
+            let age_month=0;
+            let age_day=0;
+            let life_day=(today_time-birthday_time)/(24*60*60*1000);
+             age_year = Math.floor(life_day/365);
+             
+
+            let leapYearCount=0;
+            // for(let i= birthday_year;i< today_year;i++){
+            //     let LeapYear=new Date(i,0,0);
+            //     if(LeapYear.CheckLeapYear()){
+            //         leapYearCount++;
+            //     }
+
+            // }
+
+            //this loop is count how many leap years from birthday to today
+            for(let i= birthday_year;i< today_year;i++){
+                
+                if(i % 4 === 0 && i % 100 !== 0 || i % 400 === 0){
+                    leapYearCount++;
+                }
+            }
+
+             age_month=Math.floor((life_day% 365)/30);
+             age_day= Math.floor(life_day % 365%30-leapYearCount);
+
+            
+
+            console.log(age_day)
+            console.log(leapYearCount)
+
+            return [age_year,age_month,age_day];
     
     }
 
