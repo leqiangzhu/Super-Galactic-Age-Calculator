@@ -1,9 +1,5 @@
 import { AgeCalculator } from './AgeCalculator';
-import { LeapYear } from './IsLeapYear';
 import './styles.css';
-
-
-
 
 $(document).ready(function() {
   $('#dateInput').submit(function(event) {
@@ -12,13 +8,12 @@ $(document).ready(function() {
     let month = parseInt($('#month').val());
     let day = parseInt($('#day').val());
     
-
     let birthdayInput =new  AgeCalculator (year,month,day);
-    let leapYear=new LeapYear(year,month,day);
-   
-    leapYear.CheckYearInput();
-   
+    if(day>birthdayInput.GetMaxDay()){
+      alert("viod input");
+    }
     
+   
     
     let birthdayArray = birthdayInput.GetAgeOnEarth();
     $('#result').text(" The Age on the Earth is :"+birthdayArray[0]+ 
@@ -44,13 +39,12 @@ $(document).ready(function() {
     
     });
     $('#AgeOnPlant-btn').click(function(){
+
       $("#OtherAgeOnPlant").show(); 
-  
     });
 
     $('#LeftYearOnPlant-btn').click(function(){
       $("#leftYearOnPlant").show(); 
-  
     });
 
 
