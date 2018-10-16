@@ -13,7 +13,9 @@ $(document).ready(function() {
       alert("viod input");
     }
     
-   
+    let nextBir=new  AgeCalculator (year,month,day);
+    let nextBDMercury=birthdayInput.GetNextBirthdayMercury();
+    let nextBDMars=birthdayInput.GetNextBirthdayMars();
     
     let birthdayArray = birthdayInput.GetAgeOnEarth();
     $('#result').text(" The Age on the Earth is :"+birthdayArray[0]+ 
@@ -30,6 +32,10 @@ $(document).ready(function() {
     $('#LeftYearMars').text(" you can live more than :"+birthdayInput.GetLeftYearsMars()+" Years on Mars");
     $('#LeftYearJupiter').text(" you can live more than :"+birthdayInput.GetLeftYearsJupiter()+" Years on Jupiter");
 
+    $('#Next-Birthday-Earth').text("The next birthday for you is :"+(nextBir.today.getFullYear()+1)+" Year on Earth");
+    $('#Next-Birthday-Mercury').text("The next birthday for you is :"+nextBDMercury.toDateString()+" Year on Mercury");
+    $('#Next-Birthday-Mars').text("The next birthday for you is :"+nextBDMars.toDateString()+" Year on Mars");
+
     // if(average_life>age_year){
     //   return "you can live more than" + Year +"years";
     // }else{
@@ -39,15 +45,16 @@ $(document).ready(function() {
     
     });
     $('#AgeOnPlant-btn').click(function(){
-
       $("#OtherAgeOnPlant").show(); 
     });
 
     $('#LeftYearOnPlant-btn').click(function(){
       $("#leftYearOnPlant").show(); 
     });
+    $('#NextBirthday-btn').click(function(){
+      $("#NextBirthday").show(); 
 
-
+  });
 
   });
 

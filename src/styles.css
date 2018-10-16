@@ -24,6 +24,10 @@ display: none;
 }
 #leftYearOnPlant{
   display: none;
-  }
+}
+
+#NextBirthday{
+	display: none;
+}
 
 
