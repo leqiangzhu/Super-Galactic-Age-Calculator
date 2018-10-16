@@ -1,4 +1,5 @@
 import { AgeCalculator } from './AgeCalculator';
+import { LeapYear } from './IsLeapYear';
 import './styles.css';
 
 
@@ -13,11 +14,10 @@ $(document).ready(function() {
     
 
     let birthdayInput =new  AgeCalculator (year,month,day);
-    let maxday =   birthdayInput.GetMaxDay();
-   // let dayNumber=birthdayInput.getDay();
-    if(day>maxday || maxday===0){
-     alert("the input is wrong");
-    }
+    let leapYear=new LeapYear(year,month,day);
+   
+    leapYear.CheckYearInput();
+   
     
     
     let birthdayArray = birthdayInput.GetAgeOnEarth();
