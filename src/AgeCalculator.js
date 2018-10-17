@@ -123,22 +123,57 @@ export class AgeCalculator {
     }
 
     GetNextBirthdayEarth(){
-        this.year= this.today.getFullYear()+1;
-        this.day=day;
-        this.month=this.month;
-        
+        let nextYeaar=0;
+        let nextMonth=this.month-1;
+        let nextDay=this.day;
+       
+
+        if(this.today.getMonth>this.month){
+            nextYeaar= this.today.getFullYear()+1;
+        }else if(this.today.getMonth=this.month){
+            if (this.today.getDate()>this.day){
+                nextYeaar= this.today.getFullYear()+1;
+            }
+            if(this.today.getDate()<this.day){
+                nextYeaar= this.today.getFullYear();
+            }
+
+        }else if(this.today.getMonth<this.month){
+            nextYeaar= this.today.getFullYear()+1;
+        }
+
+        let nextBirthday=new Date(nextYeaar,nextMonth,nextDay);
+
+        return nextBirthday;
     }
     
-    GetNextBirthdayMercury(){
-        let next_birthday_millionTimes=Date.now()+365*24*60*60*1000*0.24;
-        let nextBirthdayMercury= new Date(next_birthday_millionTimes);
-        return nextBirthdayMercury;
+    GetNextBirthdays(){
+        let nextBirthdayOnEarth=new Date(this.GetNextBirthdayEarth());
+        let LiftTimes= nextBirthdayOnEarth-Date.now();
+       
+        let Mercury=new Date(LiftTimes* 0.24+Date.now());
+        let Venus=new Date(LiftTimes* 0.62+Date.now());
+        let Mars=new Date(LiftTimes* 1.88+Date.now());
+        let Jupiter=new Date(LiftTimes* 11.86+Date.now());
+       
+        return [Mercury,Venus,Mars,Jupiter];
     }
 
-    GetNextBirthdayMars(){
-        let next_birthday_millionTimes=Date.now()+365*24*60*60*1000*1.88;
-        let nextBirthdayMars= new Date(next_birthday_millionTimes);
-        return nextBirthdayMars;
+    GetNextBirthdayVenus(){
+        let nextBirthdayOnEarth=this.GetNextBirthdayEarth();
+        let LiftTimes= this.GetNextBirthdayEarth()-Date.now();
+        
+        return Date((this.GetNextBirthdayEarth()-Date.now())* 0.62+Date.now());
+    }
+    GetNextBirthdayMars(){ 
+        let nextBirthdayOnEarth=this.GetNextBirthdayEarth();
+        let LiftTimes= this.GetNextBirthdayEarth()-Date.now();
+        return Date((this.GetNextBirthdayEarth()-Date.now()) * 1.88+Date.now());
+    }
+    GetNextBirthdayJupiter(){ 
+        let nextBirthdayOnEarth=this.GetNextBirthdayEarth();
+        let LiftTimes= this.GetNextBirthdayEarth()-Date.now();
+        return Date((this.GetNextBirthdayEarth()-Date.now()) * 11.86+Date.now());
     }
 
     
