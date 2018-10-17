@@ -1,0 +1,29 @@
+*{
+	font-family:'Josefin Slab', serif;
+}
+h4{
+	font-family:'Josefin Slab', serif;
+	color:678898;
+	
+}
+
+body{
+	font-family:'Josefin Slab', serif;
+  background-color: rgb(192, 229, 240);
+	
+}
+.container{
+	background:white; 
+	
+}
+
+
+
+#OtherAgeOnPlant{
+display: none;
+}
+#leftYearOnPlant{
+  display: none;
+  }
+
+

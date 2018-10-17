@@ -1,0 +1,11 @@
+node_modules/
+
+.DS_Store
+
+dist/
+/dist
+/obj
+/bin
+node_modules/
+/ds_store
+package-lock.json
