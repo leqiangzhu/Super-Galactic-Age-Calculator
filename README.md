@@ -28,7 +28,7 @@ Take a person’s age in years and create a class that does the following:
 
 | Spec | Input | Output |
 | :------------- | :------------- | :------------- |
-| **Program allow user input the birthday,year,month,day** | input: year:1990,month:3,day:6 | OUTPUT:Age: 28 Years 7 Months 13 Days |
+| **Program allow user input the birthday,year,month,day** | input: year:1990,month:3,day:6 | OUTPUT:Age: 28 Years 7 Months 7 Days |
 | **Program return the age on plants** | input: year:1990,month:3,day:6 | OUTPUT: 119.3 Years;Venus :46.2 Years;Mars is :15.2 Years ;Jupiter:2.4 Years |
 | **Program return the left year on plants** | input: year:1990,month:3,day:6  |OUTPUT: Earth:50 ;Venus :80.6 Years;Mars :26.6 Years ;Jupiter:4.2 Years |
 | ** ** |   |   |
