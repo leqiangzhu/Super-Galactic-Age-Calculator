@@ -3,7 +3,6 @@
 //     https://www.timeanddate.com/time/map/
 
 
-
 //the data is from: https://data.worldbank.org/indicator/SP.DYN.LE00.IN
 //average life expectancy USA
 const average_life=79;
