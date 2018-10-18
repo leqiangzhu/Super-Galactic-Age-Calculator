@@ -10,7 +10,8 @@ describe("AgeCalculator", function(){
 
   it('should check if the GetAgeOnEarth() works',function(){
     //the data is from https://www.calculator.net/age-calculator.html
-    expect(test_day.GetAgeOnEarth()).toEqual([8,9,16]);
+    //the test day is 10/18,
+    expect(test_day.GetAgeOnEarth()).toEqual([8,9,17]);
     expect(test_day.GetAgeOnEarth()).not.toEqual([17,10,28]);
   });
   

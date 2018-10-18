@@ -17,22 +17,36 @@ $(document).ready(function() {
       alert("viod input");
     }
     
-   
+    let nextBirdays=birthdayInput.GetNextBirthdays();
+    $('#LeftYearOnPlant-btn').click(function(){
+      if (birthdayArray[0]<79){
+        $("#leftYearOnPlant").show(); 
+      }else{
+        $("#YearsThanAverage").show(); 
+      }
+     
+    });
     
     let birthdayArray = birthdayInput.GetAgeOnEarth();
     $('#result').text(" The Age on the Earth is :"+birthdayArray[0]+ 
     " Years "+birthdayArray[1]+" Months "+birthdayArray[2]+" Days ");
 
-    $('#AgeOnMercury').text(" The Age on the Mercury is :"+birthdayInput.GetAgeOnMercury()+" Years ");
-    $('#AgeOnVenus').text(" The Age on the Venus is :"+birthdayInput.GetAgeOnVenus()+" Years ");
-    $('#AgeOnMars').text(" The Age on the Mars is :"+birthdayInput.GetAgeOnMars()+" Years ");
-    $('#AgeOnJupiter').text(" The Age on the Jupiter is :"+birthdayInput.GetAgeOnJupiter()+" Years ");
+    $('#AgeOnMercury').text(birthdayInput.GetAgeOnMercury());
+    $('#AgeOnVenus').text(birthdayInput.GetAgeOnVenus());
+    $('#AgeOnMars').text(birthdayInput.GetAgeOnMars());
+    $('#AgeOnJupiter').text(birthdayInput.GetAgeOnJupiter());
 
-    $('#LeftYearEarth').text(" you can live more than :"+birthdayInput.GetLeftYearsEarth()+" Years on Earth");
-    $('#LeftYearMercury').text(" you can live more than :"+birthdayInput.GetLeftYearsMercury()+" Years on Mercury");
-    $('#LeftYearVenus').text(" you can live more than :"+birthdayInput.GetLeftYearsVenus()+" Years on Venus");
-    $('#LeftYearMars').text(" you can live more than :"+birthdayInput.GetLeftYearsMars()+" Years on Mars");
-    $('#LeftYearJupiter').text(" you can live more than :"+birthdayInput.GetLeftYearsJupiter()+" Years on Jupiter");
+    $('.LeftYearEarth').text(birthdayInput.GetLeftYearsEarth());
+    $('.LeftYearMercury').text(birthdayInput.GetLeftYearsMercury());
+    $('.LeftYearVenus').text(birthdayInput.GetLeftYearsVenus());
+    $('.LeftYearMars').text(birthdayInput.GetLeftYearsMars());
+    $('.LeftYearJupiter').text(birthdayInput.GetLeftYearsJupiter());
+
+    $('#Next-Birthday-Earth').text(+birthdayInput.GetNextBirthdayEarth().toDateString());
+    $('#Next-Birthday-Mercury').text(nextBirdays[0]);
+    $('#Next-Birthday-Venus').text(nextBirdays[1]);
+    $('#Next-Birthday-Mars').text(nextBirdays[2]);
+    $('#Next-Birthday-Jupiter').text(+nextBirdays[3]);
 
     // if(average_life>age_year){
     //   return "you can live more than" + Year +"years";
@@ -43,16 +57,14 @@ $(document).ready(function() {
     
     });
     $('#AgeOnPlant-btn').click(function(){
-
       $("#OtherAgeOnPlant").show(); 
     });
 
-    $('#LeftYearOnPlant-btn').click(function(){
-      $("#leftYearOnPlant").show(); 
-    });
-
-
+ 
+    $('#NextBirthday-btn').click(function(){
+      $("#NextBirthday").show(); 
+      
 
   });
 
-
+  });
